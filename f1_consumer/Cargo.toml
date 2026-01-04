@@ -1,0 +1,13 @@
+[package]
+name = "f1_consumer"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+tonic = "0.12"           # gRPC 핵심 라이브러리
+prost = "0.13"           # Protobuf 처리기
+tokio = { version = "1.0", features = ["macros", "rt-multi-thread"] } # 비동기 런타임
+tokio-stream = "0.1"     # 스트리밍 데이터 처리용
+
+[build-dependencies]
+tonic-build = "0.12"     # .proto 파일을 Rust 코드로 컴파일해주는 도구

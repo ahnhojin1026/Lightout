@@ -1,0 +1,1 @@
+/workspaces/Lightout/f1_consumer/target/debug/f1_consumer: /workspaces/Lightout/f1_consumer/../proto /workspaces/Lightout/f1_consumer/../proto/f1.proto /workspaces/Lightout/f1_consumer/build.rs /workspaces/Lightout/f1_consumer/src/main.rs /workspaces/Lightout/f1_consumer/target/debug/build/f1_consumer-2120f1ba6e3ccc40/out/f1.rs

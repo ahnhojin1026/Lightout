@@ -1,0 +1,28 @@
+// proto/f1.proto
+syntax = "proto3";
+
+package f1;
+    
+// 1. 서비스 정의: Rust 서버가 제공할 기능
+service F1TelemetryService {
+  // 스트림 방식으로 데이터를 계속 보냄 (Client Streaming)
+  rpc StreamTelemetry (stream TelemetryData) returns (TransferSummary);
+}
+
+// 2. 데이터 구조 정의: 보내는 데이터 (차량 상태)
+message TelemetryData {
+  string driver_id = 1;      // 예: "VER"
+  int64 timestamp_ms = 2;    // 타임스탬프
+  float speed = 3;           // 속도 (km/h)
+  float rpm = 4;             // 엔진 회전수
+  int32 gear = 5;            // 현재 기어
+  float throttle = 6;        // 스로틀 (0.0 ~ 100.0)
+  float brake = 7;           // 브레이크 (True/False or Pressure)
+  float drs = 8;             // DRS 활성화 여부
+}
+
+// 3. 응답 정의: Rust가 잘 받았다고 보내주는 응답
+message TransferSummary {
+  int32 total_packets = 1;   // 총 받은 데이터 개수
+  string status = 2;         // 상태 메시지
+}

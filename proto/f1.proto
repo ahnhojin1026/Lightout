@@ -19,6 +19,9 @@ message TelemetryData {
   float throttle = 6;        // 스로틀 (0.0 ~ 100.0)
   float brake = 7;           // 브레이크 (True/False or Pressure)
   float drs = 8;             // DRS 활성화 여부
+  float x = 9;               // X position
+  float y = 10;              // Y position
+  float z = 11;              // Z position
 }
 
 // 3. 응답 정의: Rust가 잘 받았다고 보내주는 응답

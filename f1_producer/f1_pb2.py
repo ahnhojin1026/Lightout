@@ -24,7 +24,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x08\x66\x31.proto\x12\x02\x66\x31\"\x90\x01\n\rTelemetryData\x12\x11\n\tdriver_id\x18\x01 \x01(\t\x12\x14\n\x0ctimestamp_ms\x18\x02 \x01(\x03\x12\r\n\x05speed\x18\x03 \x01(\x02\x12\x0b\n\x03rpm\x18\x04 \x01(\x02\x12\x0c\n\x04gear\x18\x05 \x01(\x05\x12\x10\n\x08throttle\x18\x06 \x01(\x02\x12\r\n\x05\x62rake\x18\x07 \x01(\x02\x12\x0b\n\x03\x64rs\x18\x08 \x01(\x02\"8\n\x0fTransferSummary\x12\x15\n\rtotal_packets\x18\x01 \x01(\x05\x12\x0e\n\x06status\x18\x02 \x01(\t2Q\n\x12\x46\x31TelemetryService\x12;\n\x0fStreamTelemetry\x12\x11.f1.TelemetryData\x1a\x13.f1.TransferSummary(\x01\x62\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x08\x66\x31.proto\x12\x02\x66\x31\"\xb1\x01\n\rTelemetryData\x12\x11\n\tdriver_id\x18\x01 \x01(\t\x12\x14\n\x0ctimestamp_ms\x18\x02 \x01(\x03\x12\r\n\x05speed\x18\x03 \x01(\x02\x12\x0b\n\x03rpm\x18\x04 \x01(\x02\x12\x0c\n\x04gear\x18\x05 \x01(\x05\x12\x10\n\x08throttle\x18\x06 \x01(\x02\x12\r\n\x05\x62rake\x18\x07 \x01(\x02\x12\x0b\n\x03\x64rs\x18\x08 \x01(\x02\x12\t\n\x01x\x18\t \x01(\x02\x12\t\n\x01y\x18\n \x01(\x02\x12\t\n\x01z\x18\x0b \x01(\x02\"8\n\x0fTransferSummary\x12\x15\n\rtotal_packets\x18\x01 \x01(\x05\x12\x0e\n\x06status\x18\x02 \x01(\t2Q\n\x12\x46\x31TelemetryService\x12;\n\x0fStreamTelemetry\x12\x11.f1.TelemetryData\x1a\x13.f1.TransferSummary(\x01\x62\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -32,9 +32,9 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'f1_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   DESCRIPTOR._loaded_options = None
   _globals['_TELEMETRYDATA']._serialized_start=17
-  _globals['_TELEMETRYDATA']._serialized_end=161
-  _globals['_TRANSFERSUMMARY']._serialized_start=163
-  _globals['_TRANSFERSUMMARY']._serialized_end=219
-  _globals['_F1TELEMETRYSERVICE']._serialized_start=221
-  _globals['_F1TELEMETRYSERVICE']._serialized_end=302
+  _globals['_TELEMETRYDATA']._serialized_end=194
+  _globals['_TRANSFERSUMMARY']._serialized_start=196
+  _globals['_TRANSFERSUMMARY']._serialized_end=252
+  _globals['_F1TELEMETRYSERVICE']._serialized_start=254
+  _globals['_F1TELEMETRYSERVICE']._serialized_end=335
 # @@protoc_insertion_point(module_scope)

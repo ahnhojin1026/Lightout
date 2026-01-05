@@ -21,7 +21,7 @@ def load_f1_data():
     telemetry = lap.get_telemetry()
     
     # 필요한 컬럼만 뽑고 NaN 처리
-    columns = ['Date', 'Speed', 'RPM', 'nGear', 'Throttle', 'Brake', 'DRS']
+    columns = ['Date', 'Speed', 'RPM', 'nGear', 'Throttle', 'Brake', 'DRS','X','Y','Z']
     df = telemetry[columns].fillna(0)
     print(f"✅ 데이터 로드 완료! 총 {len(df)}개의 데이터 포인트가 있습니다.")
     return df
@@ -38,11 +38,14 @@ def generate_telemetry(df):
             gear=int(row['nGear']),
             throttle=float(row['Throttle']),
             brake=float(row['Brake']),
-            drs=float(row['DRS'])
+            drs=float(row['DRS']),
+            x=float(row['X']),
+            y=float(row['Y']),
+            z=float(row['Z']),
         )
         
         # 실제 레이스처럼 보이게 0.05초 대기 (부하 테스트 시 주석 처리)
-        time.sleep(0.05)
+        # time.sleep(0.05)
         
         yield msg
 

@@ -141,13 +141,12 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     // 2. 상태 공유 객체 생성
     let app_state = Arc::new(AppState { tx: tx.clone() });
 
-    // 3. 웹 서버 (Axum) 설정 - 포트 3000
+    // 3. 웹 서버 (Axum) 설정
     let app = Router::new()
-        .route("/ws", get(ws_handler))
-        // [추가된 부분] 루트(/)로 들어오면 bento_dashboard.html 파일을 줘라!
-        .route_service("/", ServeFile::new("bento_dashboard.html")) 
+        .route("/ws", get(ws_handler)) // ✅ WS 경로는 유지
+        // ❌ .route_service("/", ...) 이 줄은 삭제! (이제 React가 UI 담당)
         .with_state(app_state.clone())
-        .layer(CorsLayer::permissive());
+        .layer(CorsLayer::permissive()); // ✅ 이게 있어서 React(5173)가 접속 가능함. 아주 중요!
 
     // 웹 서버를 별도 태스크(스레드)로 실행
     tokio::spawn(async move {

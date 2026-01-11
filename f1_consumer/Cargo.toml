@@ -12,7 +12,7 @@ serde = { version = "1.0", features = ["derive"] } # 데이터 -> JSON 변환기
 serde_json = "1.0"
 axum = { version = "0.7", features = ["ws"] } # 요즘 가장 핫한 Rust 웹 프레임워크
 tokio-util = { version = "0.7", features = ["io"] }
-tower-http = { version = "0.5", features = ["cors"] } # 보안 정책(CORS) 해결사
+tower-http = { version = "0.5", features = ["cors","fs"] } # 보안 정책(CORS) 해결사
 
 [build-dependencies]
 tonic-build = "0.12"     # .proto 파일을 Rust 코드로 컴파일해주는 도구

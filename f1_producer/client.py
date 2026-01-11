@@ -13,7 +13,7 @@ fastf1.Cache.enable_cache('./cache')
 def load_f1_data():
     """FastF1을 이용해 2024년 몬자 GP, 베르스타펜 데이터 로드"""
     print("🏎️  F1 데이터를 로딩 중입니다... (약간의 시간이 걸립니다)")
-    session = fastf1.get_session(2024, 'Monza', 'Q')
+    session = fastf1.get_session(2024, 'Monaco', 'Q')
     session.load()
     
     # 베르스타펜(VER)의 가장 빠른 랩 선택
@@ -45,7 +45,7 @@ def generate_telemetry(df):
         )
         
         # 실제 레이스처럼 보이게 0.05초 대기 (부하 테스트 시 주석 처리)
-        # time.sleep(0.05)
+        time.sleep(0.05)
         
         yield msg
 

@@ -10,6 +10,7 @@ use std::sync::Arc;
 use tokio::sync::broadcast;
 use tonic::{transport::Server, Request, Response, Status, Streaming};
 use tower_http::cors::CorsLayer;
+use tower_http::services::ServeFile;
 
 // Protobuf 모듈
 pub mod f1 {
@@ -142,9 +143,11 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     // 3. 웹 서버 (Axum) 설정 - 포트 3000
     let app = Router::new()
-        .route("/ws", get(ws_handler)) // ws://localhost:3000/ws 주소
-        .with_state(app_state.clone()) // 상태 주입
-        .layer(CorsLayer::permissive()); // 보안 정책 해제 (개발용)
+        .route("/ws", get(ws_handler))
+        // [추가된 부분] 루트(/)로 들어오면 bento_dashboard.html 파일을 줘라!
+        .route_service("/", ServeFile::new("bento_dashboard.html")) 
+        .with_state(app_state.clone())
+        .layer(CorsLayer::permissive());
 
     // 웹 서버를 별도 태스크(스레드)로 실행
     tokio::spawn(async move {
